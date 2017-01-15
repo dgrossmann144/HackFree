@@ -49,25 +49,25 @@ public class KeyInput extends KeyAdapter
 				}
 				if (key == KeyEvent.VK_UP) 
 				{
-					handler.addObject(new Dart(tempObject.getX() + 16, tempObject.getY(), ID.Dart, handler));
+					handler.addObject(new Dart(tempObject.getX() + 16, tempObject.getY(), ID.Dart, handler,0,-2));
 					Dart.DartVelY = -2;
 					Dart.DartVelX = 0;
 				}
 				if (key == KeyEvent.VK_DOWN) 
 				{
-					handler.addObject(new Dart(tempObject.getX() + 16, tempObject.getY() + 32, ID.Dart, handler));
+					handler.addObject(new Dart(tempObject.getX() + 16, tempObject.getY() + 32, ID.Dart, handler,0,2));
 					Dart.DartVelY = 2;
 					Dart.DartVelX = 0;
 				}
 				if (key == KeyEvent.VK_LEFT) 
 				{
-					handler.addObject(new Dart(tempObject.getX(), tempObject.getY() + 16, ID.Dart, handler));
+					handler.addObject(new Dart(tempObject.getX(), tempObject.getY() + 16, ID.Dart, handler,-2,0));
 					Dart.DartVelX = -2;
 					Dart.DartVelY = 0;
 				}
 				if (key == KeyEvent.VK_RIGHT) 
 				{
-					handler.addObject(new Dart(tempObject.getX() + 32, tempObject.getY() + 16, ID.Dart, handler));
+					handler.addObject(new Dart(tempObject.getX() + 32, tempObject.getY() + 16, ID.Dart, handler,2,0));
 					Dart.DartVelX = 2;
 					Dart.DartVelY = 0;
 				}
