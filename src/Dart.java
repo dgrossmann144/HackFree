@@ -44,6 +44,7 @@ public class Dart extends GameObject
 				{
 					handler.removeObject(this);
 					handler.removeObject(tempObject);
+					HUD.score++;
 				}
 			}
 		}

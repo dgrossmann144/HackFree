@@ -5,6 +5,7 @@ import java.awt.Graphics;
 public class HUD 
 {
 	public static int HEALTH = 375;
+	public static int score = 0;
 	
 	public void tick() 
 	{
@@ -16,7 +17,7 @@ public class HUD
 		
 		g.setFont(fnt);
 		g.setColor(Color.black);
-		g.drawString("Score: ", 25, 120);
+		g.drawString("Score: " + score, 25, 120);
 		
 		g.setColor(Color.green);
 		g.fillRect(25, 25, HEALTH, 50);
