@@ -10,6 +10,8 @@ public class Game extends Canvas implements Runnable
 	private boolean running = false;
 	
 	private Handler handler;
+	private HUD hud;
+	private Spawn spawner;
 
 	public static final int WIDTH = 1280, HEIGHT = WIDTH / 12 * 9; // Screen size
 	
@@ -22,6 +24,8 @@ public class Game extends Canvas implements Runnable
 	public Game() 
 	{
 		handler = new Handler();
+		hud = new HUD();
+		spawner = new Spawn(handler, hud, this);
 		
 		this.addKeyListener(new KeyInput(handler, this));
 		//this.addMouseListener(menu);
@@ -29,6 +33,8 @@ public class Game extends Canvas implements Runnable
 		new Window(WIDTH, HEIGHT, "HackFRee Game", this);
 		
 		handler.addObject(new Player(500, 500, ID.Player, handler));
+		
+		
 	}
 	public synchronized void start() 
 	{
