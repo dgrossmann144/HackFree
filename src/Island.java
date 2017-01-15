@@ -50,11 +50,32 @@ public class Island extends GameObject
 	{
 		g.setColor(Color.orange);
 		g.fillRect(384, 256, 512, 384);
+		for(int i = 0; i < 16; i++)
+			for(int j = 0; j < 12; j++)
+			{
+				if(j==0)
+				{
+					g.drawImage(islandGrassDown, 384 + (i*32), 256, null);
+				}
+				else if(i == 0)
+				{
+					g.drawImage(islandGrassRight, 384, 256 + (j*32), null);
+				}
+				else if(i == 15)
+				{
+					g.drawImage(islandGrassLeft, 864, 256 + (32 * j), null);
+				}
+				else if (j == 11)
+				{
+					g.drawImage(islandGrassUp, 384+(i*32), 608, null);
+				}
+				else 
+					g.drawImage(islandGrass, 384+(32 * i), 256+(32*j), null);
+			}
 		g.drawImage(islandCorner1, 384, 256, null);
 		g.drawImage(islandCorner2, 864, 256, null);
 		g.drawImage(islandCorner3, 864, 608, null);
 		g.drawImage(islandCorner4, 384, 608, null);
-
 		
 	}
 	public Rectangle getBounds()
