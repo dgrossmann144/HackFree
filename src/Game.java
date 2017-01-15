@@ -15,7 +15,7 @@ public class Game extends Canvas implements Runnable
 	private Spawn spawner;
 	private Random r;
 
-	public static final int WIDTH = 1280, HEIGHT = WIDTH / 12 * 9; // Screen size
+	public static final int WIDTH = 1280, HEIGHT = WIDTH / 12 * 9; // Screen size or 960
 	
 	public enum STATE 
 	{

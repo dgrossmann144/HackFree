@@ -1,5 +1,6 @@
 
 
+import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public class Entity extends GameObject
@@ -21,11 +22,11 @@ public class Entity extends GameObject
 	 * 7 = down right<br>
 	 * 8 = stationary<br>*/
 	private int direction;
-	public Entity (int startx, int starty,int startHealth,int Damage,Rectangle rectangle, int direction, float Speed)
+	public Entity (int startx, int starty,int startHealth,int Damage,Rectangle rectangle,ID id, int direction, float Speed)
 	{
-		super(startx,starty);
-		pos.x = startx; 
-		pos.y = starty;
+		super(startx,starty, id);
+		this.x = startx; 
+		this.y = starty;
 		this.health = startHealth;
 		this.damage = Damage;
 		this.hitBox = rectangle;
@@ -60,5 +61,20 @@ public class Entity extends GameObject
 	public float getSpeed ()
 	{
 		return speed;
+	}
+	@Override
+	public void tick() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void render(Graphics g) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Rectangle getBounds() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

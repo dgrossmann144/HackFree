@@ -1,9 +1,10 @@
+import java.awt.Rectangle;
 
 public class Enemy extends Entity
 {
-	public Enemy (int startx, int starty,int startHealth,int Damage,com.badlogic.gdx.math.Rectangle rectangle, int direction, float Speed)
+	public Enemy (int startx, int starty,int startHealth,int Damage,Rectangle rectangle,ID id, int direction, float Speed)
 	{
-		super(startx, starty,startHealth,Damage,rectangle,direction, Speed);
+		super(startx, starty, startHealth, Damage, rectangle, id, direction, Speed);
 	}
 	public void move ()
 	{

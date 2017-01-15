@@ -6,7 +6,8 @@ public class Spawn
 	private Game game;
 	private Random r = new Random();
 	private HUD hud;
-	
+	private static int mobCounter;
+	private static int mobDelay = 0;
 	private int zone;
 	
 	public Spawn(Handler handler, HUD hud, Game game) 
@@ -17,14 +18,24 @@ public class Spawn
 	}
 	public void tick() 
 	{
-		if (Game.gameState == Game.STATE.Game) 
+
+		if(mobDelay == 0)
 		{
-			zone = r.nextInt(3);
-			if (zone == 0) 
-			{
-				handler.addObject(new BasicEnemy(r.nextInt(900) + 400, r.nextInt(700) + 200, ID.BasicEnemy, handler));
+		if (Game.gameState == Game.STATE.Game) 
+		{	
+				mobDelay = 30;
+//				zone = r.nextInt(10);
+//				if (zone == 0) 
+//				{
+					handler.addObject(new BasicEnemy(r.nextInt(400) + 400, 0, ID.BasicEnemy, handler));
+//				}
+//				handler.addObject(new BasicEnemy(680, 0, ID.BasicEnemy, handler));
 			}
-			handler.addObject(new BasicEnemy(680, 0, ID.BasicEnemy, handler));
+		}
+		else
+		{
+			mobDelay--;
 		}
 	}
+	
 }
