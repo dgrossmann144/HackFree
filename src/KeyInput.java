@@ -53,22 +53,22 @@ public class KeyInput extends KeyAdapter
 		}
 		if (key == KeyEvent.VK_UP && Game.canShoot) 
 		{
-			handler.addObject(new Dart(tempObject.getX() + 16, tempObject.getY(), ID.Dart, handler, 0, -2));
+			handler.addObject(new Dart(tempObject.getX() + 8, tempObject.getY() + 8, ID.Dart, handler, 0, -2));
 			Game.canShoot = false;
 		}
 		if (key == KeyEvent.VK_DOWN && Game.canShoot) 
 		{
-			handler.addObject(new Dart(tempObject.getX() + 16, tempObject.getY() + 32, ID.Dart, handler, 0, 2));
+			handler.addObject(new Dart(tempObject.getX() + 8, tempObject.getY(), ID.Dart, handler, 0, 2));
 			Game.canShoot = false;
 		}
 		if (key == KeyEvent.VK_LEFT && Game.canShoot) 
 		{
-			handler.addObject(new Dart(tempObject.getX(), tempObject.getY() + 16, ID.Dart, handler, -2, 0));
+			handler.addObject(new Dart(tempObject.getX() + 8, tempObject.getY() + 8, ID.Dart, handler, -2, 0));
 			Game.canShoot = false;
 		}
 		if (key == KeyEvent.VK_RIGHT && Game.canShoot) 
 		{
-			handler.addObject(new Dart(tempObject.getX() + 32, tempObject.getY() + 16, ID.Dart, handler, 2, 0));
+			handler.addObject(new Dart(tempObject.getX(), tempObject.getY() + 8, ID.Dart, handler, 2, 0));
 			Game.canShoot = false;
 		}
 		if (key == KeyEvent.VK_ESCAPE) 
