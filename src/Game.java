@@ -49,7 +49,6 @@ public class Game extends Canvas implements Runnable
 		background = ss.grabImage(3, 1, 32, 32);
 		
 		handler.addObject(new Island(WIDTH / 2, HEIGHT / 2, ID.Island, handler));
-		handler.addObject(new Jewel(720, 500, ID.Jewel, handler));
 		handler.addObject(new Player(WIDTH / 2, HEIGHT / 2, ID.Player, handler));
 		//handler.addObject(new BasicEnemy(680, 0, ID.BasicEnemy, handler));
 		
