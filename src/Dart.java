@@ -25,6 +25,11 @@ public class Dart extends GameObject
 		x += velX;
 		y += velY;
 		
+		if(x < 0 || x > 1280 || y < 0 || y > 960)
+		{
+			handler.removeObject(this);
+		}
+		
 		collision();
 	}
 	public void collision() 

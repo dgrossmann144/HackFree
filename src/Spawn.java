@@ -9,7 +9,6 @@ public class Spawn
 	private static int mobCounter;
 	private static int mobDelay = 0;
 	private int zone;
-	//TODO fix enemies that can't be hit
 	public Spawn(Handler handler, HUD hud, Game game) 
 	{
 		this.handler = handler;
@@ -27,14 +26,14 @@ public class Spawn
 					zone = r.nextInt(4);
 					if (zone == 0) 
 					{
-						handler.addObject(new BasicEnemy(r.nextInt(500) + 400, 0, ID.BasicEnemy, handler,0,1));
+						handler.addObject(new BasicEnemy(r.nextInt(400) + 450, 0, ID.BasicEnemy, handler,0,1));
 					}
 					else if(zone == 1)
-						handler.addObject(new BasicEnemy(1260, r.nextInt(500) + 200, ID.BasicEnemy, handler,-1,0));
+						handler.addObject(new BasicEnemy(1260, r.nextInt(400) + 250, ID.BasicEnemy, handler,-1,0));
 					else if(zone == 2)
-						handler.addObject(new BasicEnemy(r.nextInt(500) + 400, 960, ID.BasicEnemy, handler,0,-1));
+						handler.addObject(new BasicEnemy(r.nextInt(400) + 450, 960, ID.BasicEnemy, handler,0,-1));
 					else
-						handler.addObject(new BasicEnemy(0, r.nextInt(500) + 200, ID.BasicEnemy, handler,1,0));
+						handler.addObject(new BasicEnemy(0, r.nextInt(400) + 250, ID.BasicEnemy, handler,1,0));
 			}
 		}
 		else
