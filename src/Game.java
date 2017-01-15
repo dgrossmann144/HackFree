@@ -27,6 +27,8 @@ public class Game extends Canvas implements Runnable
 		//this.addMouseListener(menu);
 		
 		new Window(WIDTH, HEIGHT, "HackFRee Game", this);
+		
+		new Player(500, 500, ID.Player, handler);
 	}
 	public synchronized void start() 
 	{
@@ -81,7 +83,7 @@ public class Game extends Canvas implements Runnable
 	}
 	private void tick() 
 	{
-		
+		handler.tick();
 	}
 	private void render()
 	{
@@ -93,10 +95,13 @@ public class Game extends Canvas implements Runnable
 		}
 		Graphics g = bs.getDrawGraphics();
 		
-		g.setColor(Color.black);
+		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
 		handler.render(g);
+		
+		g.dispose();
+		bs.show();
 	}
 	public static int clamp(int var, int min, int max) 
 	{
