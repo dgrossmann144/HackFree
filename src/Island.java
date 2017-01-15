@@ -13,8 +13,23 @@ public class Island extends GameObject
 	}
 	public void tick()
 	{
-
-		
+		collision();
+	}
+	public void collision() 
+	{
+		for (int i = 0; i < handler.object.size(); i++) 
+		{
+			GameObject tempObject = handler.object.get(i);
+			
+			if (tempObject.getId() == ID.BasicEnemy) 
+			{
+				if (getBounds().intersects(tempObject.getBounds())) 
+				{
+					HUD.HEALTH -= 75;
+					handler.removeObject(tempObject);
+				}
+			}
+		}
 	}
 	public void render(Graphics g) 
 	{
@@ -23,7 +38,7 @@ public class Island extends GameObject
 	}
 	public Rectangle getBounds()
 	{
-		return null;
+		return new Rectangle(400, 200, 500, 500);
 
 	}
 
