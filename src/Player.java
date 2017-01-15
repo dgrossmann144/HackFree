@@ -16,8 +16,8 @@ public class Player extends GameObject
 		x += velX;
 		y += velY;
 		
-		x = Game.clamp(x, 400, 900 - 32);
-		y = Game.clamp(y, 200, 700 - 32);
+		x = Game.clamp(x, 384, 864);
+		y = Game.clamp(y, 224, 704);
 
 				
 	}
