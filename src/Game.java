@@ -38,7 +38,7 @@ public class Game extends Canvas implements Runnable
 		spawner = new Spawn(handler, hud, this);
 		this.addKeyListener(new KeyInput(handler, this));
 		//this.addMouseListener(menu);
-		new Window(WIDTH, HEIGHT, "HackFRee Game", this);
+		new Window(WIDTH, HEIGHT, "Buccaneer Battles", this);
 		SpriteSheet ss = new SpriteSheet(sprite_sheet);
 		background = ss.grabImage(3, 1, 32, 32);
 		handler.addObject(new Island(WIDTH / 2, HEIGHT / 2, ID.Island, handler));
