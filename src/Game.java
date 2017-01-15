@@ -10,6 +10,11 @@ public class Game extends Canvas implements Runnable
 
 	public static final int WIDTH = 1280, HEIGHT = WIDTH / 12 * 9; // Screen size
 	
+	public enum STATE 
+	{
+		Menu, Game;
+	}
+	
 	public Game() 
 	{
 		new Window(WIDTH, HEIGHT, "HackFRee Game", this);
