@@ -72,10 +72,10 @@ public class Island extends GameObject
 				else 
 					g.drawImage(islandGrass, 384+(32 * i), 256+(32*j), null);
 			}
-		g.drawImage(islandCorner1, 384, 256, null);
+		g.drawImage(islandCorner4, 384, 256, null);
 		g.drawImage(islandCorner2, 864, 256, null);
 		g.drawImage(islandCorner3, 864, 608, null);
-		g.drawImage(islandCorner4, 384, 608, null);
+		g.drawImage(islandCorner1, 384, 608, null);
 		
 	}
 	public Rectangle getBounds()
