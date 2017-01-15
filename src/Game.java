@@ -2,6 +2,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.util.Random;
 
 public class Game extends Canvas implements Runnable
 {
@@ -12,6 +13,7 @@ public class Game extends Canvas implements Runnable
 	private Handler handler;
 	private HUD hud;
 	private Spawn spawner;
+	private Random r;
 
 	public static final int WIDTH = 1280, HEIGHT = WIDTH / 12 * 9; // Screen size
 	
@@ -33,8 +35,10 @@ public class Game extends Canvas implements Runnable
 		new Window(WIDTH, HEIGHT, "HackFRee Game", this);
 		
 		handler.addObject(new Island(WIDTH / 2, HEIGHT / 2, ID.Island, handler));
+		handler.addObject(new Jewel(720, 500, ID.Jewel, handler));
 		handler.addObject(new Player(WIDTH / 2, HEIGHT / 2, ID.Player, handler));
-		handler.addObject(new BasicEnemy(680, 0, ID.BasicEnemy, handler));
+		//handler.addObject(new BasicEnemy(680, 0, ID.BasicEnemy, handler));
+		
 		
 		
 	}
