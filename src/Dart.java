@@ -36,6 +36,7 @@ public class Dart extends GameObject
 				if (getBounds().intersects(tempObject.getBounds())) 
 				{
 					handler.removeObject(tempObject);
+					handler.removeObject(this);
 				}
 			}
 		}
