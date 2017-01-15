@@ -9,7 +9,7 @@ public class Spawn
 	private static int mobCounter;
 	private static int mobDelay = 0;
 	private int zone;
-	
+	//TODO fix enemies that can't be hit
 	public Spawn(Handler handler, HUD hud, Game game) 
 	{
 		this.handler = handler;
