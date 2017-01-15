@@ -1,11 +1,8 @@
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.Random;
-
-import com.main.AudioPlayer;
 
 public class Game extends Canvas implements Runnable
 {
