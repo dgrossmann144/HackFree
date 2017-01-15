@@ -32,7 +32,7 @@ public class Game extends Canvas implements Runnable
 		
 		new Window(WIDTH, HEIGHT, "HackFRee Game", this);
 		
-		handler.addObject(new Player(500, 500, ID.Player, handler));
+		handler.addObject(new Player(WIDTH / 2, HEIGHT / 2, ID.Player, handler));
 		
 		
 	}
@@ -89,7 +89,13 @@ public class Game extends Canvas implements Runnable
 	}
 	private void tick() 
 	{
-		handler.tick();
+		if (gameState == STATE.Game) 
+		{
+			hud.tick();
+			spawner.tick();
+			handler.tick();
+		}
+		
 	}
 	private void render()
 	{
@@ -105,6 +111,11 @@ public class Game extends Canvas implements Runnable
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
 		handler.render(g);
+		
+		if(gameState == STATE.Game) 
+		{
+			hud.render(g);
+		}
 		
 		g.dispose();
 		bs.show();

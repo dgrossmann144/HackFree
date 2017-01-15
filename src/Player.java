@@ -16,6 +16,8 @@ public class Player extends GameObject
 		x += velX;
 		y += velY;
 		
+		System.out.println(x);
+		
 		x = Game.clamp(x, 0, Game.WIDTH - 37);
 		y = Game.clamp(y, 0, Game.HEIGHT - 67);
 				
@@ -23,7 +25,7 @@ public class Player extends GameObject
 	public void render(Graphics g) 
 	{
 		g.setColor(Color.WHITE);
-		g.fillRect(Game.WIDTH / 2, Game.HEIGHT / 2, 32, 32);
+		g.fillRect(x, y, 32, 32);
 	}
 	public Rectangle getBounds() 
 	{
