@@ -10,6 +10,8 @@ public class Game extends Canvas implements Runnable
 	private boolean running = false;
 	
 	private Handler handler;
+	private HUD hud;
+	private Spawn spawner;
 
 	public static final int WIDTH = 1280, HEIGHT = WIDTH / 12 * 9; // Screen size
 	
@@ -22,13 +24,19 @@ public class Game extends Canvas implements Runnable
 	public Game() 
 	{
 		handler = new Handler();
+		hud = new HUD();
+		spawner = new Spawn(handler, hud, this);
 		
 		this.addKeyListener(new KeyInput(handler, this));
 		//this.addMouseListener(menu);
 		
 		new Window(WIDTH, HEIGHT, "HackFRee Game", this);
 		
-		handler.addObject(new Player(500, 500, ID.Player, handler));
+		handler.addObject(new Island(WIDTH / 2, HEIGHT / 2, ID.Island, handler));
+		handler.addObject(new Player(WIDTH / 2, HEIGHT / 2, ID.Player, handler));
+		handler.addObject(new BasicEnemy(680, 0, ID.BasicEnemy, handler));
+		
+		
 	}
 	public synchronized void start() 
 	{
@@ -83,7 +91,13 @@ public class Game extends Canvas implements Runnable
 	}
 	private void tick() 
 	{
-		handler.tick();
+		if (gameState == STATE.Game) 
+		{
+			hud.tick();
+			spawner.tick();
+			handler.tick();
+		}
+		
 	}
 	private void render()
 	{
@@ -95,10 +109,15 @@ public class Game extends Canvas implements Runnable
 		}
 		Graphics g = bs.getDrawGraphics();
 		
-		g.setColor(Color.BLACK);
+		g.setColor(Color.cyan);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
 		handler.render(g);
+		
+		if(gameState == STATE.Game) 
+		{
+			hud.render(g);
+		}
 		
 		g.dispose();
 		bs.show();

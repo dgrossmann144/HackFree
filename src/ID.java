@@ -1,5 +1,8 @@
 
 public enum ID 
 {
-	Player();
+	Player(),
+	BasicEnemy(), // Name something else later again
+	Island();
+	
 }
