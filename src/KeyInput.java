@@ -21,67 +21,80 @@ public class KeyInput extends KeyAdapter
 	{
 		int key = e.getKeyCode();
 		
-		GameObject tempObject = null;
-		for(int i = 0; i < handler.object.size(); i++) 
+		if(Game.gameState == Game.STATE.Game) 
 		{
-			if(handler.object.get(i).getId() == ID.Player) 
+			GameObject tempObject = null;
+			for(int i = 0; i < handler.object.size(); i++) 
 			{
-				tempObject = handler.object.get(i);
-				break;
+				if(handler.object.get(i).getId() == ID.Player) 
+				{
+					tempObject = handler.object.get(i);
+					break;
+				}
+			}
+			
+			if (key == KeyEvent.VK_W) 
+			{
+				tempObject.setVelY(-5);
+				keyDown[0] = true;
+				//AudioPlayer.getSound("walk_sound").play();
+			}
+			if (key == KeyEvent.VK_S) 
+			{
+				tempObject.setVelY(5);
+				keyDown[1] = true;
+				//AudioPlayer.getSound("walk_sound").play();
+			}
+			if (key == KeyEvent.VK_D) 
+			{
+				tempObject.setVelX(5);
+				keyDown[2] = true;
+				//AudioPlayer.getSound("walk_sound").play();
+			}
+			if (key == KeyEvent.VK_A) 
+			{
+				tempObject.setVelX(-5);
+				keyDown[3] = true;
+				//AudioPlayer.getSound("walk_sound").play();
+			}
+			if (key == KeyEvent.VK_UP && Game.canShoot) 
+			{
+				handler.addObject(new Dart(tempObject.getX() + 8, tempObject.getY() + 8, ID.Dart, handler, 0, -10));
+				Game.shotDelay = 30;
+				Game.canShoot = false;
+				AudioPlayer.getSound("pop_gun").play();
+			}
+			if (key == KeyEvent.VK_DOWN && Game.canShoot) 
+			{
+				handler.addObject(new Dart(tempObject.getX() + 8, tempObject.getY(), ID.Dart, handler, 0, 10));
+				Game.shotDelay = 30;
+				Game.canShoot = false;
+				AudioPlayer.getSound("pop_gun").play();
+			}
+			if (key == KeyEvent.VK_LEFT && Game.canShoot) 
+			{
+				handler.addObject(new Dart(tempObject.getX() + 8, tempObject.getY() + 8, ID.Dart, handler, -10, 0));
+				Game.shotDelay = 30;
+				Game.canShoot = false;
+				AudioPlayer.getSound("pop_gun").play();
+			}
+			if (key == KeyEvent.VK_RIGHT && Game.canShoot) 
+			{
+				handler.addObject(new Dart(tempObject.getX(), tempObject.getY() + 8, ID.Dart, handler, 10, 0));
+				Game.shotDelay = 30;
+				Game.canShoot = false;
+				AudioPlayer.getSound("pop_gun").play();
 			}
 		}
-		
-		if (key == KeyEvent.VK_W) 
+		else if (Game.gameState == Game.STATE.Lose) 
 		{
-			tempObject.setVelY(-5);
-			keyDown[0] = true;
-			//AudioPlayer.getSound("walk_sound").play();
-		}
-		if (key == KeyEvent.VK_S) 
-		{
-			tempObject.setVelY(5);
-			keyDown[1] = true;
-			//AudioPlayer.getSound("walk_sound").play();
-		}
-		if (key == KeyEvent.VK_D) 
-		{
-			tempObject.setVelX(5);
-			keyDown[2] = true;
-			//AudioPlayer.getSound("walk_sound").play();
-		}
-		if (key == KeyEvent.VK_A) 
-		{
-			tempObject.setVelX(-5);
-			keyDown[3] = true;
-			//AudioPlayer.getSound("walk_sound").play();
-		}
-		if (key == KeyEvent.VK_UP && Game.canShoot) 
-		{
-			handler.addObject(new Dart(tempObject.getX() + 8, tempObject.getY() + 8, ID.Dart, handler, 0, -10));
-			Game.shotDelay = 30;
-			Game.canShoot = false;
-			AudioPlayer.getSound("pop_gun").play();
-		}
-		if (key == KeyEvent.VK_DOWN && Game.canShoot) 
-		{
-			handler.addObject(new Dart(tempObject.getX() + 8, tempObject.getY(), ID.Dart, handler, 0, 10));
-			Game.shotDelay = 30;
-			Game.canShoot = false;
-			AudioPlayer.getSound("pop_gun").play();
-		}
-		if (key == KeyEvent.VK_LEFT && Game.canShoot) 
-		{
-			handler.addObject(new Dart(tempObject.getX() + 8, tempObject.getY() + 8, ID.Dart, handler, -10, 0));
-			Game.shotDelay = 30;
-			Game.canShoot = false;
-			AudioPlayer.getSound("pop_gun").play();
-		}
-		if (key == KeyEvent.VK_RIGHT && Game.canShoot) 
-		{
-			handler.addObject(new Dart(tempObject.getX(), tempObject.getY() + 8, ID.Dart, handler, 10, 0));
-			Game.shotDelay = 30;
-			Game.canShoot = false;
-			AudioPlayer.getSound("pop_gun").play();
+			handler.clearObjects();
+			
+			if (key == KeyEvent.VK_ENTER) 
+			{
+				//handler.addObject(object);
+				Game.gameState = Game.STATE.Game;
+			}
 		}
 		if (key == KeyEvent.VK_ESCAPE) 
 		{

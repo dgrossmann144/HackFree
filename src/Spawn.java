@@ -26,6 +26,9 @@ public class Spawn
 				mobDelay = 60;
 				zone = r.nextInt(4);
 				
+				//handler.addObject(new Island(Game.WIDTH / 2, Game.HEIGHT / 2, ID.Island, handler));
+				//handler.addObject(new Player(Game.WIDTH / 2, Game.HEIGHT / 2, ID.Player, handler));
+				
 				SpriteSheet ss = new SpriteSheet(Game.sprite_sheet);
 				
 				if (zone == 0) 

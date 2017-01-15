@@ -12,14 +12,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/nster/Documents/Java/libs/jars/slick.jar"/>
-	<classpathentry kind="lib" path="C:/Users/acate/Desktop/New folder/jinput.jar"/>
-	<classpathentry kind="lib" path="C:/Users/acate/Desktop/New folder/jogg-0.0.7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/acate/Desktop/New folder/jorbis-0.0.15.jar"/>
-	<classpathentry kind="lib" path="C:/Users/acate/Desktop/New folder/lwjgl.jar">
-		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/acate/Desktop/New folder/windows"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/acate/Desktop/New folder/slick.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

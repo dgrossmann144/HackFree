@@ -13,6 +13,7 @@ public class Game extends Canvas implements Runnable
 	private Handler handler;
 	private HUD hud;
 	private Spawn spawner;
+	private Menu menu;
 	private Random r;
 	private BufferedImage background;
 	
@@ -24,7 +25,7 @@ public class Game extends Canvas implements Runnable
 	
 	public enum STATE 
 	{
-		Menu, Game, Help;
+		Menu, Game, Help, Lose;
 	}
 	public static STATE gameState = STATE.Game;
 	
@@ -34,6 +35,7 @@ public class Game extends Canvas implements Runnable
 		sprite_sheet = loader.loadImage("/spritesheet.png");
 		handler = new Handler();
 		hud = new HUD();
+		menu = new Menu(this, handler, hud);
 		spawner = new Spawn(handler, hud, this);
 		this.addKeyListener(new KeyInput(handler, this));
 		//this.addMouseListener(menu);
@@ -114,6 +116,10 @@ public class Game extends Canvas implements Runnable
 			spawner.tick();
 			handler.tick();
 		}
+		else if (gameState == STATE.Lose) 
+		{
+			menu.tick();
+		}
 		
 	}
 	private void render()
@@ -143,6 +149,10 @@ public class Game extends Canvas implements Runnable
 		if(gameState == STATE.Game) 
 		{
 			hud.render(g);
+		}
+		else if (gameState == STATE.Lose) 
+		{
+			menu.render(g);
 		}
 		
 		g.dispose();

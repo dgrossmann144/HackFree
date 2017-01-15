@@ -13,6 +13,7 @@ public class HUD
 		{
 			AudioPlayer.endMusic("game_music");
 			AudioPlayer.getSound("loss_sound").play();
+			Game.gameState = Game.STATE.Lose;
 		}
 	}
 	public void render(Graphics g) 

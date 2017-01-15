@@ -1,6 +1,10 @@
 import java.util.HashMap;
 import java.util.Map;
 
+import org.newdawn.slick.Music;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Sound;
+
 public class AudioPlayer 
 {
 	public static Map<String, Sound> soundMap = new HashMap<String, Sound>();
@@ -13,6 +17,7 @@ public class AudioPlayer
 			//soundMap.put("gun_sound", new Sound("res/pop_gun.ogg"));
 			soundMap.put("loss_sound", new Sound("res/loss_sound.ogg"));
 			soundMap.put("walk_sound", new Sound("res/walk_sound.ogg"));
+			soundMap.put("explosion", new Sound("res/explosion.ogg"));
 			musicMap.put("game_music", new Music("res/score.ogg"));
 		} 
 		catch (SlickException e) 

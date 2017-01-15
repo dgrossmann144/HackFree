@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -46,6 +47,10 @@ public class Menu extends MouseAdapter
 			else return false;
 		else return false;
 	}
+	public void tick() 
+	{
+		
+	}
 	public void render(Graphics g) 
 	{
 		if (Game.gameState == Game.STATE.Menu) 
@@ -65,6 +70,16 @@ public class Menu extends MouseAdapter
 			g.setColor(Color.white);
 			g.drawRect(400, 300, 500, 100);
 			g.drawString("Play", 600, 367);
+		}
+		else if (Game.gameState == Game.STATE.Lose) 
+		{
+			Font fnt = new Font("Comic Sans", 1, 32);
+			g.setFont(fnt);
+			
+			g.setColor(Color.RED);
+			g.drawString("You Lose!", Game.WIDTH / 2, Game.HEIGHT / 2);
+			g.drawString("Score: " + HUD.score, 500, 500);
+			g.drawString("Press enter to play again", 500, 600);
 		}
 	}
 }
