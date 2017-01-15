@@ -6,13 +6,13 @@ public class BasicEnemy extends GameObject // Name something else later, just te
 {
 	Handler handler;
 	
-	public BasicEnemy(int x, int y, ID id, Handler handler) 
+	public BasicEnemy(int x, int y, ID id, Handler handler, int initvelx ,int initvely) 
 	{
 		super(x, y, id);
 		this.handler = handler;
 		
-		velX = 0;
-		velY = 1;
+		velX = initvelx;
+		velY = initvely;
 		
 	}
 	public void tick()
