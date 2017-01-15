@@ -2,6 +2,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 public class Game extends Canvas implements Runnable
@@ -14,7 +15,11 @@ public class Game extends Canvas implements Runnable
 	private HUD hud;
 	private Spawn spawner;
 	private Random r;
+	private BufferedImage background;
+	
 	public static boolean canShoot = true;
+	
+	public static BufferedImage sprite_sheet;
 
 	public static final int WIDTH = 1280, HEIGHT = WIDTH / 12 * 9; // Screen size or 960
 	
@@ -34,6 +39,14 @@ public class Game extends Canvas implements Runnable
 		//this.addMouseListener(menu);
 		
 		new Window(WIDTH, HEIGHT, "HackFRee Game", this);
+		
+		BufferedImageLoader loader = new BufferedImageLoader();
+		
+		sprite_sheet = loader.loadImage("/spritesheet.png");
+		
+		SpriteSheet ss = new SpriteSheet(sprite_sheet);
+		
+		background = ss.grabImage(3, 1, 32, 32);
 		
 		handler.addObject(new Island(WIDTH / 2, HEIGHT / 2, ID.Island, handler));
 		handler.addObject(new Jewel(720, 500, ID.Jewel, handler));
@@ -121,8 +134,16 @@ public class Game extends Canvas implements Runnable
 		}
 		Graphics g = bs.getDrawGraphics();
 		
-		g.setColor(Color.cyan);
-		g.fillRect(0, 0, WIDTH, HEIGHT);
+		//g.setColor(Color.cyan);
+		for (int x = 0; x < WIDTH; x += 32) 
+		{
+			for (int y = 0; y < HEIGHT; y += 32) 
+			{
+				g.drawImage(background, x, y, null);
+			}
+		}
+		
+		
 		
 		handler.render(g);
 		
