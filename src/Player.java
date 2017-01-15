@@ -20,6 +20,7 @@ public class Player extends GameObject
 		
 		SpriteSheet ss = new SpriteSheet(Game.sprite_sheet);
 		
+		currentImage = ss.grabImage(1, 1, 32, 32);
 		if(getVelX() == 0 && getVelY() < 0)
 		{
 			currentImage = ss.grabImage(1, 2, 32, 32);
