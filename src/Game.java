@@ -9,7 +9,7 @@ public class Game extends Canvas implements Runnable
 	private static final long serialVersionUID = 1L;
 	private Thread thread;
 	private boolean running = false;
-	private int shotDelay = 30;
+	public static int shotDelay = 30;
 	private Handler handler;
 	private HUD hud;
 	private Spawn spawner;
