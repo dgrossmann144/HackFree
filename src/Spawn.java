@@ -11,8 +11,6 @@ public class Spawn
 	private static int mobDelay = 0;
 	private int zone;
 	
-	public static BufferedImage shipCurrentImage;
-	
 	public Spawn(Handler handler, HUD hud, Game game) 
 	{
 		this.handler = handler;
@@ -26,31 +24,27 @@ public class Spawn
 		{
 			if (Game.gameState == Game.STATE.Game) 
 			{	
-					mobDelay = 60;
-					zone = r.nextInt(4);
-					
-					SpriteSheet ss = new SpriteSheet(Game.sprite_sheet);
-					
-					if (zone == 0) 
-					{
-						handler.addObject(new BasicEnemy(r.nextInt(400) + 450, 0, ID.BasicEnemy, handler,0,1));
-						shipCurrentImage = ss.grabImage(2, 1, 32, 32);
-					}
-					else if(zone == 1) 
-					{
-						handler.addObject(new BasicEnemy(1260, r.nextInt(400) + 250, ID.BasicEnemy, handler,-1,0));
-						shipCurrentImage = ss.grabImage(2, 4, 32, 32);
-					}	
-					else if(zone == 2)
-					{
-						handler.addObject(new BasicEnemy(r.nextInt(400) + 450, 960, ID.BasicEnemy, handler,0,-1));
-						shipCurrentImage = ss.grabImage(2, 2, 32, 32);
-					}	
-					else
-					{
-						handler.addObject(new BasicEnemy(0, r.nextInt(400) + 250, ID.BasicEnemy, handler,1,0));
-						shipCurrentImage = ss.grabImage(2, 3, 32, 32);
-					}
+				mobDelay = 60;
+				zone = r.nextInt(4);
+				
+				SpriteSheet ss = new SpriteSheet(Game.sprite_sheet);
+				
+				if (zone == 0) 
+				{
+					handler.addObject(new BasicEnemy(r.nextInt(400) + 450, 0, ID.BasicEnemy, handler,0,1, ss.grabImage(2, 1, 32, 32)));
+				}
+				else if(zone == 1) 
+				{
+					handler.addObject(new BasicEnemy(1260, r.nextInt(400) + 250, ID.BasicEnemy, handler,-1,0, ss.grabImage(2, 4, 32, 32)));
+				}	
+				else if(zone == 2)
+				{
+					handler.addObject(new BasicEnemy(r.nextInt(400) + 450, 960, ID.BasicEnemy, handler,0,-1, ss.grabImage(2, 2, 32, 32)));
+				}	
+				else
+				{
+					handler.addObject(new BasicEnemy(0, r.nextInt(400) + 250, ID.BasicEnemy, handler,1,0, ss.grabImage(2, 3, 32, 32)));
+				}
 						
 			}
 		}

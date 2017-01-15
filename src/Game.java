@@ -31,6 +31,9 @@ public class Game extends Canvas implements Runnable
 	
 	public Game() 
 	{
+		BufferedImageLoader loader = new BufferedImageLoader();
+		
+		sprite_sheet = loader.loadImage("/spritesheet.png");
 		handler = new Handler();
 		hud = new HUD();
 		spawner = new Spawn(handler, hud, this);
@@ -39,10 +42,6 @@ public class Game extends Canvas implements Runnable
 		//this.addMouseListener(menu);
 		
 		new Window(WIDTH, HEIGHT, "HackFRee Game", this);
-		
-		BufferedImageLoader loader = new BufferedImageLoader();
-		
-		sprite_sheet = loader.loadImage("/spritesheet.png");
 		
 		SpriteSheet ss = new SpriteSheet(sprite_sheet);
 		
