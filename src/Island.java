@@ -49,11 +49,11 @@ public class Island extends GameObject
 	public void render(Graphics g) 
 	{
 		g.setColor(Color.orange);
-		g.fillRect(384, 224, 512, 512);
-		g.drawImage(islandCorner1, 400, 200, null);
-		g.drawImage(islandCorner2, 900 - 32, 200, null);
-		g.drawImage(islandCorner3, 900 - 32, 700 - 32, null);
-		g.drawImage(islandCorner4, 400, 700 - 32, null);
+		g.fillRect(384, 256, 512, 384);
+		g.drawImage(islandCorner1, 384, 256, null);
+		g.drawImage(islandCorner2, 864, 256, null);
+		g.drawImage(islandCorner3, 864, 608, null);
+		g.drawImage(islandCorner4, 384, 608, null);
 		
 		for (int x = 400 + 32; x < 900 - 32; x += 32)
 			for (int y = 200 + 32; y < 700 - 32; y += 32)
@@ -61,7 +61,7 @@ public class Island extends GameObject
 	}
 	public Rectangle getBounds()
 	{
-		return new Rectangle(384, 224, 512, 512);
+		return new Rectangle(384, 256, 512, 384);
 	}
 
 }
