@@ -29,12 +29,12 @@ public class KeyInput extends KeyAdapter
 			{
 				if (key == KeyEvent.VK_W) 
 				{
-					tempObject.setVelY(5);
+					tempObject.setVelY(-5);
 					keyDown[0] = true;
 				}
 				if (key == KeyEvent.VK_S) 
 				{
-					tempObject.setVelY(-5);
+					tempObject.setVelY(5);
 					keyDown[1] = true;
 				}
 				if (key == KeyEvent.VK_D) 
