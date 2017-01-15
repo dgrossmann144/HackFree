@@ -15,7 +15,6 @@ public class Game extends Canvas implements Runnable
 	private HUD hud;
 	private Spawn spawner;
 	private Random r;
-	private Menu menu;
 	private BufferedImage background;
 	
 	public static boolean canShoot = true;
@@ -33,30 +32,18 @@ public class Game extends Canvas implements Runnable
 	public Game() 
 	{
 		BufferedImageLoader loader = new BufferedImageLoader();
-		
 		sprite_sheet = loader.loadImage("/spritesheet.png");
-		
-		
 		handler = new Handler();
 		hud = new HUD();
 		spawner = new Spawn(handler, hud, this);
-		menu = new Menu(this, handler, hud);
-		
 		this.addKeyListener(new KeyInput(handler, this));
 		//this.addMouseListener(menu);
-		
 		new Window(WIDTH, HEIGHT, "HackFRee Game", this);
-		
-		
 		SpriteSheet ss = new SpriteSheet(sprite_sheet);
-		
 		background = ss.grabImage(3, 1, 32, 32);
 		handler.addObject(new Island(WIDTH / 2, HEIGHT / 2, ID.Island, handler));
 		handler.addObject(new Player(WIDTH / 2, HEIGHT / 2, ID.Player, handler));
 		//handler.addObject(new BasicEnemy(680, 0, ID.BasicEnemy, handler));
-		
-		
-		
 	}
 	public synchronized void start() 
 	{
@@ -103,7 +90,7 @@ public class Game extends Canvas implements Runnable
 			if(System.currentTimeMillis() - timer > 1000) 
 			{
 				timer += 1000;
-				//System.out.println("FPS: " + frames);
+//				System.out.println("FPS: " + frames);
 				frames = 0;
 			}
 		}
@@ -153,10 +140,6 @@ public class Game extends Canvas implements Runnable
 		if(gameState == STATE.Game) 
 		{
 			hud.render(g);
-		}
-		else
-		{
-			menu.render(g);
 		}
 		
 		g.dispose();
