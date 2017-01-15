@@ -7,6 +7,8 @@ public class Game extends Canvas implements Runnable
 	private static final long serialVersionUID = 1L;
 	private Thread thread;
 	private boolean running = false;
+	
+	private Handler handler;
 
 	public static final int WIDTH = 1280, HEIGHT = WIDTH / 12 * 9; // Screen size
 	
@@ -17,6 +19,11 @@ public class Game extends Canvas implements Runnable
 	
 	public Game() 
 	{
+		handler = new Handler();
+		
+		this.addKeyListener(new KeyInput(handler, this));
+		//this.addMouseListener(menu);
+		
 		new Window(WIDTH, HEIGHT, "HackFRee Game", this);
 	}
 	public synchronized void start() 
