@@ -5,6 +5,8 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
+import com.main.AudioPlayer;
+
 public class Game extends Canvas implements Runnable
 {
 	private static final long serialVersionUID = 1L;
@@ -38,6 +40,10 @@ public class Game extends Canvas implements Runnable
 		spawner = new Spawn(handler, hud, this);
 		this.addKeyListener(new KeyInput(handler, this));
 		//this.addMouseListener(menu);
+		
+		AudioPlayer.load();
+		AudioPlayer.getMusic("game_music").loop();
+		
 		new Window(WIDTH, HEIGHT, "Buccaneer Battles", this);
 		SpriteSheet ss = new SpriteSheet(sprite_sheet);
 		background = ss.grabImage(3, 1, 32, 32);
