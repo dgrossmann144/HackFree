@@ -16,7 +16,6 @@ public class Handler
 	}
 	public void render(Graphics g) 
 	{
-		System.out.println("Object size: " + object.size());
 		for (int i = 0; i < object.size(); i++) 
 		{
 			GameObject tempObject = object.get(i);

@@ -15,16 +15,10 @@ public class Player extends GameObject
 	{
 		x += velX;
 		y += velY;
-<<<<<<< HEAD
-		
-		System.out.println(x);
 		
 		x = Game.clamp(x, 400, 900 - 32);
 		y = Game.clamp(y, 200, 700 - 32);
-=======
-		x = Game.clamp(x, 0, Game.WIDTH - 37);
-		y = Game.clamp(y, 0, Game.HEIGHT - 67);
->>>>>>> 9733493d8eb08babbc98562c1528f69acb2b37cb
+
 				
 	}
 	public void render(Graphics g) 
