@@ -60,28 +60,28 @@ public class KeyInput extends KeyAdapter
 			handler.addObject(new Dart(tempObject.getX() + 8, tempObject.getY() + 8, ID.Dart, handler, 0, -10));
 			Game.shotDelay = 30;
 			Game.canShoot = false;
-			//AudioPlayer.getSound("pop_gun").play();
+			AudioPlayer.getSound("pop_gun").play();
 		}
 		if (key == KeyEvent.VK_DOWN && Game.canShoot) 
 		{
 			handler.addObject(new Dart(tempObject.getX() + 8, tempObject.getY(), ID.Dart, handler, 0, 10));
 			Game.shotDelay = 30;
 			Game.canShoot = false;
-			//AudioPlayer.getSound("pop_gun").play();
+			AudioPlayer.getSound("pop_gun").play();
 		}
 		if (key == KeyEvent.VK_LEFT && Game.canShoot) 
 		{
 			handler.addObject(new Dart(tempObject.getX() + 8, tempObject.getY() + 8, ID.Dart, handler, -10, 0));
 			Game.shotDelay = 30;
 			Game.canShoot = false;
-			//AudioPlayer.getSound("pop_gun").play();
+			AudioPlayer.getSound("pop_gun").play();
 		}
 		if (key == KeyEvent.VK_RIGHT && Game.canShoot) 
 		{
 			handler.addObject(new Dart(tempObject.getX(), tempObject.getY() + 8, ID.Dart, handler, 10, 0));
 			Game.shotDelay = 30;
 			Game.canShoot = false;
-			//AudioPlayer.getSound("pop_gun").play();
+			AudioPlayer.getSound("pop_gun").play();
 		}
 		if (key == KeyEvent.VK_ESCAPE) 
 		{

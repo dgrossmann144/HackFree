@@ -9,7 +9,11 @@ public class HUD
 	
 	public void tick() 
 	{
-		
+		if (HEALTH == 0) 
+		{
+			AudioPlayer.endMusic("game_music");
+			AudioPlayer.getSound("loss_sound").play();
+		}
 	}
 	public void render(Graphics g) 
 	{
