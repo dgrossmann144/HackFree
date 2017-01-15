@@ -1,4 +1,5 @@
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
@@ -16,6 +17,7 @@ public class Game extends Canvas implements Runnable
 	{
 		Menu, Game;
 	}
+	public static STATE gameState = STATE.Game;
 	
 	public Game() 
 	{
@@ -90,6 +92,11 @@ public class Game extends Canvas implements Runnable
 			return;
 		}
 		Graphics g = bs.getDrawGraphics();
+		
+		g.setColor(Color.black);
+		g.fillRect(0, 0, WIDTH, HEIGHT);
+		
+		handler.render(g);
 	}
 	public static int clamp(int var, int min, int max) 
 	{
