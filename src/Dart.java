@@ -9,7 +9,8 @@ public class Dart extends GameObject
 	
 	Handler handler;
 	
-	public Dart(int x, int y, ID id, Handler handler, int initVelx, int initVely) {
+	public Dart(int x, int y, ID id, Handler handler, int initVelx, int initVely)
+	{
 		super(x, y, id);
 		
 		this.handler = handler;
