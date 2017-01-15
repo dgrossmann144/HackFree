@@ -28,7 +28,7 @@ public class Game extends Canvas implements Runnable
 		
 		new Window(WIDTH, HEIGHT, "HackFRee Game", this);
 		
-		new Player(500, 500, ID.Player, handler);
+		handler.addObject(new Player(500, 500, ID.Player, handler));
 	}
 	public synchronized void start() 
 	{
