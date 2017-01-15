@@ -45,11 +45,11 @@ public class Dart extends GameObject
 	public void render(Graphics g) 
 	{
 		g.setColor(Color.GRAY);
-		g.fillRect(x, y, 10, 10);
+		g.fillRect(x, y, 15, 15);
 	}
 	public Rectangle getBounds() 
 	{
-		return new Rectangle(x, y, 10, 10);
+		return new Rectangle(x, y, 15, 15);
 	}
 
 }

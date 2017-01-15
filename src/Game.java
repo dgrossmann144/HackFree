@@ -9,11 +9,12 @@ public class Game extends Canvas implements Runnable
 	private static final long serialVersionUID = 1L;
 	private Thread thread;
 	private boolean running = false;
-	
+	private int shotDelay = 10;
 	private Handler handler;
 	private HUD hud;
 	private Spawn spawner;
 	private Random r;
+	public static boolean canShoot = true;
 
 	public static final int WIDTH = 1280, HEIGHT = WIDTH / 12 * 9; // Screen size or 960
 	
@@ -95,6 +96,13 @@ public class Game extends Canvas implements Runnable
 	}
 	private void tick() 
 	{
+		if(shotDelay == 0)
+		{
+			canShoot = true;
+			shotDelay = 100;
+		}
+		else
+			shotDelay--;
 		if (gameState == STATE.Game) 
 		{
 			hud.tick();
@@ -139,4 +147,5 @@ public class Game extends Canvas implements Runnable
 	{
 		new Game();
 	}
+	
 }

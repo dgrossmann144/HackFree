@@ -26,8 +26,67 @@ public class KeyInput extends KeyAdapter
 		{
 			if(handler.object.get(x).getId() == ID.Player)
 			{
-				tempObject = handler.object.get(x);
-				break;
+				if (key == KeyEvent.VK_W) 
+				{
+					tempObject.setVelY(-5);
+					keyDown[0] = true;
+				}
+				else if (key == KeyEvent.VK_S) 
+				{
+					tempObject.setVelY(5);
+					keyDown[1] = true;
+				}
+				else if (key == KeyEvent.VK_D) 
+				{
+					tempObject.setVelX(5);
+					keyDown[2] = true;
+				}
+				else if (key == KeyEvent.VK_A) 
+				{
+					tempObject.setVelX(-5);
+					keyDown[3] = true;
+				}
+				else if (key == KeyEvent.VK_UP) 
+				{
+					if(Game.canShoot)
+					{
+						handler.addObject(new Dart(tempObject.getX() + 16, tempObject.getY(), ID.Dart, handler,0,-2));
+						Dart.DartVelY = -2;
+						Dart.DartVelX = 0;
+						Game.canShoot = false;
+					}
+				}
+				else if (key == KeyEvent.VK_DOWN) 
+				{
+					if(Game.canShoot)
+					{	
+						handler.addObject(new Dart(tempObject.getX() + 16, tempObject.getY() + 32, ID.Dart, handler,0,2));
+						Dart.DartVelY = 2;
+						Dart.DartVelX = 0;
+						Game.canShoot = false;
+					}
+				}
+				else if (key == KeyEvent.VK_LEFT) 
+				{
+					if(Game.canShoot)
+					{
+						handler.addObject(new Dart(tempObject.getX(), tempObject.getY() + 16, ID.Dart, handler,-2,0));
+						Dart.DartVelX = -2;
+						Dart.DartVelY = 0;
+						Game.canShoot = false;
+					}
+				}
+					
+				else if (key == KeyEvent.VK_RIGHT) 
+				{
+					if(Game.canShoot)
+					{
+						handler.addObject(new Dart(tempObject.getX() + 32, tempObject.getY() + 16, ID.Dart, handler,2,0));
+						Dart.DartVelX = 2;
+						Dart.DartVelY = 0;
+						Game.canShoot = false;
+					}
+				}
 			}
 		}
 		
