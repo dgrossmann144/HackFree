@@ -54,10 +54,8 @@ public class Island extends GameObject
 		g.drawImage(islandCorner2, 864, 256, null);
 		g.drawImage(islandCorner3, 864, 608, null);
 		g.drawImage(islandCorner4, 384, 608, null);
+
 		
-		for (int x = 400 + 32; x < 900 - 32; x += 32)
-			for (int y = 200 + 32; y < 700 - 32; y += 32)
-				g.drawImage(islandGrassUp, 32, 32, null);
 	}
 	public Rectangle getBounds()
 	{
