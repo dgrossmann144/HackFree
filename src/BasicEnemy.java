@@ -23,8 +23,9 @@ public class BasicEnemy extends GameObject // Name something else later, just te
 	}
 	public void render(Graphics g) 
 	{
-		g.setColor(Color.red);
-		g.fillRect(x, y, 32, 32);
+		//g.setColor(Color.red);
+		//g.fillRect(x, y, 32, 32);
+		g.drawImage(Spawn.shipCurrentImage, x, y, null);
 	}
 	public Rectangle getBounds()
 	{
