@@ -31,21 +31,20 @@ public class Spawn
 				
 				if (zone == 0) 
 				{
-					handler.addObject(new BasicEnemy(r.nextInt(400) + 450, 0, ID.BasicEnemy, handler,0,1, ss.grabImage(2, 1, 32, 32)));
+					handler.addObject(new BasicEnemy(r.nextInt(480) + 384, 0, ID.BasicEnemy, handler,0,1, ss.grabImage(2, 1, 32, 32)));
 				}
 				else if(zone == 1) 
 				{
-					handler.addObject(new BasicEnemy(1260, r.nextInt(400) + 250, ID.BasicEnemy, handler,-1,0, ss.grabImage(2, 4, 32, 32)));
+					handler.addObject(new BasicEnemy(1260, r.nextInt(352) + 250, ID.BasicEnemy, handler,-1,0, ss.grabImage(2, 4, 32, 32)));
 				}	
 				else if(zone == 2)
 				{
-					handler.addObject(new BasicEnemy(r.nextInt(400) + 450, 960, ID.BasicEnemy, handler,0,-1, ss.grabImage(2, 2, 32, 32)));
+					handler.addObject(new BasicEnemy(r.nextInt(480) + 384, 960, ID.BasicEnemy, handler,0,-1, ss.grabImage(2, 2, 32, 32)));
 				}	
 				else
 				{
-					handler.addObject(new BasicEnemy(0, r.nextInt(400) + 250, ID.BasicEnemy, handler,1,0, ss.grabImage(2, 3, 32, 32)));
+					handler.addObject(new BasicEnemy(0, r.nextInt(352) + 250, ID.BasicEnemy, handler,1,0, ss.grabImage(2, 3, 32, 32)));
 				}
-						
 			}
 		}
 		else

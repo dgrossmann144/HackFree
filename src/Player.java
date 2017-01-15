@@ -39,7 +39,7 @@ public class Player extends GameObject
 		}
 		
 		x = Game.clamp(x, 384, 864);
-		y = Game.clamp(y, 224, 704);
+		y = Game.clamp(y, 256, 608);
 
 				
 	}
