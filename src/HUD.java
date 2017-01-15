@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 public class HUD 
 {
-	public static int HEALTH = 375;
+	public static int HEALTH = 450;
 	public static int score = 0;
 	
 	public void tick() 
@@ -23,7 +23,7 @@ public class HUD
 		g.fillRect(25, 25, HEALTH, 50);
 		
 		g.setColor(Color.BLACK);
-		g.drawRect(25, 25, 375, 50);
+		g.drawRect(25, 25, 450, 50);
 		
 	}
 }
