@@ -18,13 +18,13 @@ public class Player extends GameObject
 		
 		System.out.println(x);
 		
-		x = Game.clamp(x, 0, Game.WIDTH - 37);
-		y = Game.clamp(y, 0, Game.HEIGHT - 67);
+		x = Game.clamp(x, 400, 900 - 32);
+		y = Game.clamp(y, 200, 700 - 32);
 				
 	}
 	public void render(Graphics g) 
 	{
-		g.setColor(Color.WHITE);
+		g.setColor(Color.black);
 		g.fillRect(x, y, 32, 32);
 	}
 	public Rectangle getBounds() 

@@ -32,6 +32,7 @@ public class Game extends Canvas implements Runnable
 		
 		new Window(WIDTH, HEIGHT, "HackFRee Game", this);
 		
+		handler.addObject(new Island(WIDTH / 2, HEIGHT / 2, ID.Island, handler));
 		handler.addObject(new Player(WIDTH / 2, HEIGHT / 2, ID.Player, handler));
 		
 		
@@ -107,7 +108,7 @@ public class Game extends Canvas implements Runnable
 		}
 		Graphics g = bs.getDrawGraphics();
 		
-		g.setColor(Color.BLACK);
+		g.setColor(Color.cyan);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
 		handler.render(g);
