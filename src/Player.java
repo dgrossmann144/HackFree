@@ -15,8 +15,6 @@ public class Player extends GameObject
 	{
 		x += velX;
 		y += velY;
-		System.out.println("X: " + x);
-		System.out.println("Y: " + y);
 		x = Game.clamp(x, 0, Game.WIDTH - 37);
 		y = Game.clamp(y, 0, Game.HEIGHT - 67);
 				
