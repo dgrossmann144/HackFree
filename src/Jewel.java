@@ -19,11 +19,11 @@ public class Jewel extends GameObject
 	public void render(Graphics g) 
 	{
 		g.setColor(Color.red);
-		g.fillRect(645, 445, 24, 24);
+		g.fillRect(638, 438, 24, 24);
 	}
 	public Rectangle getBounds()
 	{
-		return new Rectangle(720, 500, 24, 24);
+		return new Rectangle(638, 438, 24, 24);
 
 	}
 
