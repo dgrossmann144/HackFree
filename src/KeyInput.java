@@ -32,44 +32,61 @@ public class KeyInput extends KeyAdapter
 					tempObject.setVelY(-5);
 					keyDown[0] = true;
 				}
-				if (key == KeyEvent.VK_S) 
+				else if (key == KeyEvent.VK_S) 
 				{
 					tempObject.setVelY(5);
 					keyDown[1] = true;
 				}
-				if (key == KeyEvent.VK_D) 
+				else if (key == KeyEvent.VK_D) 
 				{
 					tempObject.setVelX(5);
 					keyDown[2] = true;
 				}
-				if (key == KeyEvent.VK_A) 
+				else if (key == KeyEvent.VK_A) 
 				{
 					tempObject.setVelX(-5);
 					keyDown[3] = true;
 				}
-				if (key == KeyEvent.VK_UP) 
+				else if (key == KeyEvent.VK_UP) 
 				{
-					handler.addObject(new Dart(tempObject.getX() + 16, tempObject.getY(), ID.Dart, handler,0,-2));
-					Dart.DartVelY = -2;
-					Dart.DartVelX = 0;
+					if(Game.canShoot)
+					{
+						handler.addObject(new Dart(tempObject.getX() + 16, tempObject.getY(), ID.Dart, handler,0,-2));
+						Dart.DartVelY = -2;
+						Dart.DartVelX = 0;
+						Game.canShoot = false;
+					}
 				}
-				if (key == KeyEvent.VK_DOWN) 
+				else if (key == KeyEvent.VK_DOWN) 
 				{
-					handler.addObject(new Dart(tempObject.getX() + 16, tempObject.getY() + 32, ID.Dart, handler,0,2));
-					Dart.DartVelY = 2;
-					Dart.DartVelX = 0;
+					if(Game.canShoot)
+					{	
+						handler.addObject(new Dart(tempObject.getX() + 16, tempObject.getY() + 32, ID.Dart, handler,0,2));
+						Dart.DartVelY = 2;
+						Dart.DartVelX = 0;
+						Game.canShoot = false;
+					}
 				}
-				if (key == KeyEvent.VK_LEFT) 
+				else if (key == KeyEvent.VK_LEFT) 
 				{
-					handler.addObject(new Dart(tempObject.getX(), tempObject.getY() + 16, ID.Dart, handler,-2,0));
-					Dart.DartVelX = -2;
-					Dart.DartVelY = 0;
+					if(Game.canShoot)
+					{
+						handler.addObject(new Dart(tempObject.getX(), tempObject.getY() + 16, ID.Dart, handler,-2,0));
+						Dart.DartVelX = -2;
+						Dart.DartVelY = 0;
+						Game.canShoot = false;
+					}
 				}
-				if (key == KeyEvent.VK_RIGHT) 
+					
+				else if (key == KeyEvent.VK_RIGHT) 
 				{
-					handler.addObject(new Dart(tempObject.getX() + 32, tempObject.getY() + 16, ID.Dart, handler,2,0));
-					Dart.DartVelX = 2;
-					Dart.DartVelY = 0;
+					if(Game.canShoot)
+					{
+						handler.addObject(new Dart(tempObject.getX() + 32, tempObject.getY() + 16, ID.Dart, handler,2,0));
+						Dart.DartVelX = 2;
+						Dart.DartVelY = 0;
+						Game.canShoot = false;
+					}
 				}
 			}
 		}
