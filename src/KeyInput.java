@@ -87,9 +87,7 @@ public class KeyInput extends KeyAdapter
 			}
 		}
 		else if (Game.gameState == Game.STATE.Lose) 
-		{
-			handler.clearObjects();
-			
+		{	
 			if (key == KeyEvent.VK_ENTER) 
 			{
 				//handler.addObject(object);

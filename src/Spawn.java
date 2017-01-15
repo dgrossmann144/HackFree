@@ -47,6 +47,10 @@ public class Spawn
 				{
 					handler.addObject(new BasicEnemy(0, r.nextInt(352) + 250, ID.BasicEnemy, handler,1,0, ss.grabImage(2, 3, 32, 32)));
 				}
+				if (HUD.HEALTH == 0) 
+				{
+					handler.clearObjects();
+				}
 			}
 		}
 		else

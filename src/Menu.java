@@ -77,9 +77,9 @@ public class Menu extends MouseAdapter
 			g.setFont(fnt);
 			
 			g.setColor(Color.RED);
-			g.drawString("You Lose!", Game.WIDTH / 2, Game.HEIGHT / 2);
-			g.drawString("Score: " + HUD.score, 500, 500);
-			g.drawString("Press enter to play again", 500, 600);
+			g.drawString("You Lose!", 560, 475);
+			g.drawString("Score: " + HUD.score, 570, 400);
+			g.drawString("Press exit to exit the game", 445, 550);
 		}
 	}
 }

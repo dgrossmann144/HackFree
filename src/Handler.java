@@ -23,19 +23,7 @@ public class Handler
 	}
 	public void clearObjects() 
 	{
-		for (int i = 0; i < object.size(); i++) 
-		{
-			GameObject tempObject = object.get(i);
-			
-			if (tempObject.getId() == ID.Player) 
-			{
-				object.clear();
-				if (Game.gameState != Game.STATE.Menu) 
-				{
-					addObject(new Player(tempObject.getX(), tempObject.getY(), ID.Player, this));
-				}
-			}
-		}
+		object.clear();
 	}
 	public void addObject(GameObject object) 
 	{
