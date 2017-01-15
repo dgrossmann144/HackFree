@@ -1,4 +1,5 @@
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
@@ -7,12 +8,27 @@ public class Game extends Canvas implements Runnable
 	private static final long serialVersionUID = 1L;
 	private Thread thread;
 	private boolean running = false;
+	
+	private Handler handler;
 
 	public static final int WIDTH = 1280, HEIGHT = WIDTH / 12 * 9; // Screen size
 	
+	public enum STATE 
+	{
+		Menu, Game;
+	}
+	public static STATE gameState = STATE.Game;
+	
 	public Game() 
 	{
+		handler = new Handler();
+		
+		this.addKeyListener(new KeyInput(handler, this));
+		//this.addMouseListener(menu);
+		
 		new Window(WIDTH, HEIGHT, "HackFRee Game", this);
+		
+		new Player(500, 500, ID.Player, handler);
 	}
 	public synchronized void start() 
 	{
@@ -67,7 +83,7 @@ public class Game extends Canvas implements Runnable
 	}
 	private void tick() 
 	{
-		
+		handler.tick();
 	}
 	private void render()
 	{
@@ -78,6 +94,14 @@ public class Game extends Canvas implements Runnable
 			return;
 		}
 		Graphics g = bs.getDrawGraphics();
+		
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, WIDTH, HEIGHT);
+		
+		handler.render(g);
+		
+		g.dispose();
+		bs.show();
 	}
 	public static int clamp(int var, int min, int max) 
 	{

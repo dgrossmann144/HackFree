@@ -1,46 +1,62 @@
 
+import java.awt.Graphics;
+import java.awt.Rectangle;
 
-import com.badlogic.gdx.math.Vector2;
 
 public abstract class GameObject 
 {
-	protected Vector2 pos;
-	protected Vector2 vel;
+	protected int x, y;
+	protected ID id;
+	protected int velX, velY;
 	
-	public GameObject(int x, int y) 
+	public GameObject(int x, int y, ID id) 
 	{
-		pos = new Vector2(x, y);
+		this.x = x;
+		this.y = y;
+		this.id = id;
 	}
+	public abstract void tick();
+	public abstract void render(Graphics g);
+	public abstract Rectangle getBounds();
+	
 	public void setX(int x) 
 	{
-		this.pos.x = x;
+		this.x = x;
 	}
 	public void setY(int y) 
 	{
-		this.pos.y = y;
+		this.y = y;
 	}
-	public float getX() 
+	public int getX() 
 	{
-		return pos.x;
+		return x;
 	}
-	public float getY() 
+	public int getY() 
 	{
-		return pos.y;
+		return y;
+	}
+	public void setId(ID id) 
+	{
+		this.id = id;
+	}
+	public ID getId()
+	{
+		return id;
 	}
 	public void setVelX(int velX) 
 	{
-		this.vel.x = velX;
+		this.velX = velX;
 	}
 	public void setVelY(int velY) 
 	{
-		this.vel.y = velY;
+		this.velY = velY;
 	}
-	public float getVelX() 
+	public int getVelX() 
 	{
-		return pos.x;
+		return velX;
 	}
-	public float getVelY() 
+	public int getVelY() 
 	{
-		return pos.y;
+		return velY;
 	}
 }
