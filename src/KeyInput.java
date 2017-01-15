@@ -21,11 +21,10 @@ public class KeyInput extends KeyAdapter
 	{
 		int key = e.getKeyCode();
 		
-		for(int i = 0; i < handler.object.size(); i++) 
+		GameObject tempObject = null;
+		for(int x = 0; x < handler.object.size(); x++)
 		{
-			GameObject tempObject = handler.object.get(i);
-			
-			if(tempObject.getId() == ID.Player) 
+			if(handler.object.get(x).getId() == ID.Player)
 			{
 				if (key == KeyEvent.VK_W) 
 				{
@@ -89,6 +88,43 @@ public class KeyInput extends KeyAdapter
 					}
 				}
 			}
+		}
+		
+		if (key == KeyEvent.VK_W) 
+		{
+			tempObject.setVelY(-5);
+			keyDown[0] = true;
+		}
+		if (key == KeyEvent.VK_S) 
+		{
+			tempObject.setVelY(5);
+			keyDown[1] = true;
+		}
+		if (key == KeyEvent.VK_D) 
+		{
+			tempObject.setVelX(5);
+			keyDown[2] = true;
+		}
+		if (key == KeyEvent.VK_A) 
+		{
+			tempObject.setVelX(-5);
+			keyDown[3] = true;
+		}
+		if (key == KeyEvent.VK_UP) 
+		{
+			handler.addObject(new Dart(tempObject.getX() + 16, tempObject.getY(), ID.Dart, handler, 0, -2));
+		}
+		if (key == KeyEvent.VK_DOWN) 
+		{
+			handler.addObject(new Dart(tempObject.getX() + 16, tempObject.getY() + 32, ID.Dart, handler, 0, 2));
+		}
+		if (key == KeyEvent.VK_LEFT) 
+		{
+			handler.addObject(new Dart(tempObject.getX(), tempObject.getY() + 16, ID.Dart, handler, -2, 0));
+		}
+		if (key == KeyEvent.VK_RIGHT) 
+		{
+			handler.addObject(new Dart(tempObject.getX() + 32, tempObject.getY() + 16, ID.Dart, handler, 2, 0));
 		}
 		
 		if (key == KeyEvent.VK_ESCAPE) 
