@@ -1,4 +1,5 @@
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -18,6 +19,7 @@ public class Game extends Canvas implements Runnable
 	private BufferedImage background;
 	
 	public static boolean canShoot = true;
+	public static boolean paused = false;
 	
 	public static BufferedImage sprite_sheet;
 
@@ -112,9 +114,12 @@ public class Game extends Canvas implements Runnable
 			shotDelay--;
 		if (gameState == STATE.Game) 
 		{
-			hud.tick();
-			spawner.tick();
-			handler.tick();
+			if (!paused) 
+			{
+				hud.tick();
+				spawner.tick();
+				handler.tick();
+			}
 		}
 		else if (gameState == STATE.Lose) 
 		{
@@ -141,10 +146,14 @@ public class Game extends Canvas implements Runnable
 				g.drawImage(background, x, y, null);
 			}
 		}
-		
-		
-		
 		handler.render(g);
+		
+		if (paused) 
+		{
+			g.setColor(Color.red);
+			g.fillRect(450, 250, 100, 400);
+			g.fillRect(725, 250, 100, 400);
+		}
 		
 		if(gameState == STATE.Game) 
 		{

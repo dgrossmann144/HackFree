@@ -1,6 +1,8 @@
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import com.main.Game;
+
 public class KeyInput extends KeyAdapter
 {
 	private Handler handler;
@@ -97,6 +99,11 @@ public class KeyInput extends KeyAdapter
 		if (key == KeyEvent.VK_ESCAPE) 
 		{
 			System.exit(0);
+		}
+		if (key == KeyEvent.VK_P) 
+		{
+			if(Game.paused) Game.paused = false;
+			else Game.paused = true;
 		}
 	}
 	public void keyReleased(KeyEvent e) 
