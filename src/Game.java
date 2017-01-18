@@ -29,7 +29,7 @@ public class Game extends Canvas implements Runnable
 	{
 		Menu, Game, Help, Lose;
 	}
-	public static STATE gameState = STATE.Game;
+	public static STATE gameState = STATE.Menu;
 	
 	public Game() 
 	{
@@ -40,7 +40,7 @@ public class Game extends Canvas implements Runnable
 		menu = new Menu(this, handler, hud);
 		spawner = new Spawn(handler, hud, this);
 		this.addKeyListener(new KeyInput(handler, this));
-		//this.addMouseListener(menu);
+		this.addMouseListener(menu);
 		
 		AudioPlayer.load();
 		AudioPlayer.getMusic("game_music").loop();
@@ -159,7 +159,7 @@ public class Game extends Canvas implements Runnable
 		{
 			hud.render(g);
 		}
-		else if (gameState == STATE.Lose) 
+		else if (gameState == STATE.Lose || gameState == STATE.Menu) 
 		{
 			menu.render(g);
 		}
