@@ -24,14 +24,27 @@ public class Menu extends MouseAdapter
 		if (Game.gameState == Game.STATE.Menu) 
 		{
 			//play button
-			if (mouseOver(mx, my, 400, 300, 500, 100)) 
+			if (mouseOver(mx, my, 700, 115, 500, 100)) 
 			{
 				Game.gameState = Game.STATE.Game;
+				handler.addObject(new Island(Game.WIDTH / 2, Game.HEIGHT / 2, ID.Island, handler));
+				handler.addObject(new Player(Game.WIDTH / 2, Game.HEIGHT / 2, ID.Player, handler));
 				return;
 			}
+			//help button
 			if (mouseOver(mx, my, 400, 450, 500, 100)) 
 			{
 				Game.gameState = Game.STATE.Help;
+			}
+			//highscore button
+			if (mouseOver(mx, my, 700, 515, 500, 100))
+			{
+				
+			}
+			//exit button
+			if (mouseOver(mx, my, 700, 715, 500, 100)) 
+			{
+				System.exit(0);
 			}
 		}
 	}
@@ -55,21 +68,26 @@ public class Menu extends MouseAdapter
 	{
 		if (Game.gameState == Game.STATE.Menu) 
 		{
+			Font fnt = new Font("Helvetica", 1, 45);
+			
+			g.setFont(fnt);
 			g.setColor(Color.white);
-			g.drawRect(400, 750, 500, 100);
-			g.drawString("Quit", 600, 818);
+			g.drawRect(700, 715, 500, 100);
+			g.drawString("Quit", 900, 783);
 			
 			g.setColor(Color.white);
-			g.drawRect(400, 600, 500, 100);
-			g.drawString("Highscores", 535, 667);
+			g.drawRect(700, 515, 500, 100);
+			g.drawString("Highscores", 835, 582);
 			
 			g.setColor(Color.white);
-			g.drawRect(400, 450, 500, 100);
-			g.drawString("Help", 600, 517);
+			g.drawRect(700, 315, 500, 100);
+			g.drawString("Help", 900, 385);
 			
 			g.setColor(Color.white);
-			g.drawRect(400, 300, 500, 100);
-			g.drawString("Play", 600, 367);
+			g.drawRect(700, 115, 500, 100);
+			g.drawString("Play", 900, 183);
+			
+			g.drawImage(Game.logo, -30, 0, null);
 		}
 		else if (Game.gameState == Game.STATE.Lose) 
 		{

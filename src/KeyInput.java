@@ -1,8 +1,6 @@
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import com.main.Game;
-
 public class KeyInput extends KeyAdapter
 {
 	private Handler handler;

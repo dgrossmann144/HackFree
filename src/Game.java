@@ -21,7 +21,7 @@ public class Game extends Canvas implements Runnable
 	public static boolean canShoot = true;
 	public static boolean paused = false;
 	
-	public static BufferedImage sprite_sheet;
+	public static BufferedImage sprite_sheet, logo;
 
 	public static final int WIDTH = 1280, HEIGHT = WIDTH / 12 * 9; // Screen size or 960
 	
@@ -35,10 +35,13 @@ public class Game extends Canvas implements Runnable
 	{
 		BufferedImageLoader loader = new BufferedImageLoader();
 		sprite_sheet = loader.loadImage("/spritesheet.png");
+		logo = loader.loadImage("/Buccaneer Battles Logo.png");
+		
 		handler = new Handler();
 		hud = new HUD();
 		menu = new Menu(this, handler, hud);
 		spawner = new Spawn(handler, hud, this);
+		
 		this.addKeyListener(new KeyInput(handler, this));
 		this.addMouseListener(menu);
 		
@@ -46,10 +49,12 @@ public class Game extends Canvas implements Runnable
 		AudioPlayer.getMusic("game_music").loop();
 		
 		new Window(WIDTH, HEIGHT, "Buccaneer Battles", this);
+		
 		SpriteSheet ss = new SpriteSheet(sprite_sheet);
 		background = ss.grabImage(3, 1, 32, 32);
-		handler.addObject(new Island(WIDTH / 2, HEIGHT / 2, ID.Island, handler));
-		handler.addObject(new Player(WIDTH / 2, HEIGHT / 2, ID.Player, handler));
+		
+		//handler.addObject(new Island(WIDTH / 2, HEIGHT / 2, ID.Island, handler));
+		//handler.addObject(new Player(WIDTH / 2, HEIGHT / 2, ID.Player, handler));
 		//handler.addObject(new BasicEnemy(680, 0, ID.BasicEnemy, handler));
 	}
 	public synchronized void start() 
@@ -121,7 +126,7 @@ public class Game extends Canvas implements Runnable
 				handler.tick();
 			}
 		}
-		else if (gameState == STATE.Lose) 
+		else if (gameState == STATE.Lose || gameState == STATE.Menu) 
 		{
 			menu.tick();
 		}
@@ -158,6 +163,7 @@ public class Game extends Canvas implements Runnable
 		if(gameState == STATE.Game) 
 		{
 			hud.render(g);
+			
 		}
 		else if (gameState == STATE.Lose || gameState == STATE.Menu) 
 		{

@@ -6,7 +6,6 @@ public class Spawn
 	private Game game;
 	private Random r = new Random();
 	private HUD hud;
-	private static int mobCounter;
 	private static int mobDelay = 0;
 	private int zone;
 	
@@ -15,19 +14,19 @@ public class Spawn
 		this.handler = handler;
 		this.hud = hud;
 		this.game = game;
+		//handler.addObject(new Island(Game.WIDTH / 2, Game.HEIGHT / 2, ID.Island, handler));
+		//handler.addObject(new Player(Game.WIDTH / 2, Game.HEIGHT / 2, ID.Player, handler));
 	}
 	public void tick() 
 	{
-
-		if(mobDelay == 0)
+		if(/*mobDelay == 0*/Game.gameState == Game.STATE.Game)
 		{
-			if (Game.gameState == Game.STATE.Game) 
+			if (/*Game.gameState == Game.STATE.Game*/mobDelay == 0) 
 			{	
-				mobDelay = 60;
+				mobDelay = 55;
 				zone = r.nextInt(4);
 				
-				//handler.addObject(new Island(Game.WIDTH / 2, Game.HEIGHT / 2, ID.Island, handler));
-				//handler.addObject(new Player(Game.WIDTH / 2, Game.HEIGHT / 2, ID.Player, handler));
+				
 				
 				SpriteSheet ss = new SpriteSheet(Game.sprite_sheet);
 				
@@ -52,10 +51,12 @@ public class Spawn
 					handler.clearObjects();
 				}
 			}
+			else
+				mobDelay--;
 		}
-		else
+		else if (Game.gameState == Game.STATE.Lose) 
 		{
-			mobDelay--;
+			handler.clearObjects();
 		}
 	}
 	

@@ -48,8 +48,8 @@ public class Island extends GameObject
 	}
 	public void render(Graphics g) 
 	{
-		g.setColor(Color.orange);
-		g.fillRect(384, 256, 512, 384);
+		//g.setColor(Color.orange);
+		//g.fillRect(384, 256, 512, 384);
 		for(int i = 0; i < 16; i++)
 			for(int j = 0; j < 12; j++)
 			{
